@@ -21,8 +21,8 @@ if /i "%createRestorePoint%"=="y" (
 :disableipv6
 set /p disableIPV6=Désactivé IPv6? (y/n)
 if /i "%disableIPV6%"=="y" (
-    netsh interface ipv6 set interface "Ethernet" disabled
-    netsh interface ipv6 set interface "Wi-Fi" disabled
+    netsh interface ipv6 set interface "Ethernet" Désactivation
+    netsh interface ipv6 set interface "Wi-Fi" Désactivation
     echo IPv6 désactivé.
 ) else if /i "%disableIPV6%"=="n" (
     echo Echec Désactivation de IPv6.
@@ -89,7 +89,7 @@ set /p disableGameBar=Désactiver la barre de jeu ? (y/n)
 if /i "%disableGameBar%"=="y" (
     PowerShell -Command "Get-AppxPackage *Microsoft.XboxGamingOverlay* | Remove-AppxPackage"
     reg add "HKCU\Software\Microsoft\GameBar" /v "AllowAutoGameMode" /t REG_DWORD /d 0 /f
-    echo Game Bar disabled.
+    echo Game Bar Désactivation.
 ) else if /i "%disableGameBar%"=="n" (
     echo Echec sur la procédure "Désactiver la barre de jeu".
 ) else (
@@ -101,7 +101,7 @@ if /i "%disableGameBar%"=="y" (
 set /p disableIndexing=Désactiver l'indexation sur tous les lecteurs ? (y/n)
 if /i "%disableIndexing%"=="y" (
     reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "AllowIndexingEncryptedStoresOrItems" /t REG_DWORD /d 0 /f
-    echo Indexing disabled on all drives.
+    echo Indexing Désactivation on all drives.
 ) else if /i "%disableIndexing%"=="n" (
     echo Echec de la procédure "Désactiver l'indexation sur tous les lecteurs".
 ) else (
@@ -117,7 +117,7 @@ if /i "%disableHibernation%"=="y" (
     reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings" /v ShowHibernateOption /t REG_DWORD /d 0 /f
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /v PowerThrottlingOff /t REG_DWORD /d 00000001 /f
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d 00000000 /f
-    echo Hibernation disabled.
+    echo Hibernation Désactivation.
 ) else if /i "%disableHibernation%"=="n" (
     echo Echec de la procédure "Désactiver l'hibernation".
 ) else (
@@ -158,8 +158,8 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableWindo
 reg add "HKCU\SOFTWARE\Microsoft\Siuf\Rules" /v "NumberOfSIUFInPeriod" /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v "DoNotShowFeedbackNotifications" /t REG_DWORD /d 1 /f
 reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableTailoredExperiencesWithDiagnosticData" /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo" /v "DisabledByGroupPolicy" /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v "Disabled" /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo" /v "DésactivationByGroupPolicy" /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v "Désactivation" /t REG_DWORD /d 1 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v "DODownloadMode" /t REG_DWORD /d 1 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance" /v "fAllowToGetHelp" /t REG_DWORD /d 0 /f
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager" /v "EnthusiastMode" /t REG_DWORD /d 1 /f
@@ -185,7 +185,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProf
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack" /v "Start" /t REG_DWORD /d 4 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\dmwappushservice" /v "Start" /t REG_DWORD /d 4 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\SysMain" /v "Start" /t REG_DWORD /d 4 /f
-    echo Telemetry and data collection disabled.
+    echo Télémétrie et collecte de données désactivé.
 ) else if /i "%disableTelemetry%"=="n" (
     echo  echec de la procédure "Désactiver la télémétrie et la collecte de données".
 ) else (
@@ -202,7 +202,7 @@ if /i "%disableTips%"=="y" (
     reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338389Enabled" /t REG_DWORD /d 0 /f
     reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-353694Enabled" /t REG_DWORD /d 0 /f
     reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-353696Enabled" /t REG_DWORD /d 0 /f
-    echo Windows tips/suggestions disabled.
+    echo Windows tips/suggestions Désactivation.
 ) else if /i "%disableTips%"=="n" (
     echo Echec de la procédure "Désactiver les conseils/suggestions Windows".
 ) else (
@@ -214,7 +214,7 @@ if /i "%disableTips%"=="y" (
 set /p disableHomeGroup=Désactiver le groupe résidentiel ? (y/n)
 if /i "%disableHomeGroup%"=="y" (
     reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "EnableHomeGroup" /t REG_DWORD /d 0 /f
-    echo HomeGroup disabled.
+    echo HomeGroup désactivé.
 ) else if /i "%disableHomeGroup%"=="n" (
     echo Echec de la procédure "Désactiver le groupe résidentiel"
 ) else (
@@ -226,7 +226,7 @@ if /i "%disableHomeGroup%"=="y" (
 set /p disableStickyKeys=Désactiver l'invite des touches rémanentes ? (y/n)
 if /i "%disableStickyKeys%"=="y" (
     reg add "HKCU\Control Panel\Accessibility\StickyKeys" /v "Flags" /t REG_SZ /d "506" /f
-    echo Sticky keys prompt disabled.
+    echo Sticky keys prompt Désactivation.
 ) else if /i "%disableStickyKeys%"=="n" (
     echo Echec de la procédure "Désactiver l'invite des touches rémanentes".
 ) else (
@@ -237,10 +237,10 @@ if /i "%disableStickyKeys%"=="y" (
 :disablesuperfetch
 set /p disableSuperfetch=Désactiver Superfetch ? (y/n)
 if /i "%disableSuperfetch%"=="y" (
-    sc config SysMain start=disabled
+    sc config SysMain start=Désactivation
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters" /v EnableSuperfetch /t REG_DWORD /d 0 /f
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters" /v EnablePrefetcher /t REG_DWORD /d 0 /f
-    echo Superfetch disabled.
+    echo Superfetch Désactivation.
 ) else if /i "%disableSuperfetch%"=="n" (
     echo Echec de la procédure "Désactiver Superfetch".
 ) else (
@@ -252,7 +252,7 @@ if /i "%disableSuperfetch%"=="y" (
 set /p disablespooler=Désactiver le spouleur d'impression (y/n)
 if /i "%disablespooler%"=="y" (
     PowerShell -Command net stop spooler
-    echo Spooler disabled.
+    echo Spooler Désactivation.
 ) else if /i "%disablespooler%"=="n" (
     echo Echec de la procédure "Désactiver le spouleur".
 ) else (
@@ -263,8 +263,8 @@ if /i "%disablespooler%"=="y" (
 :WindowsInsiderService
 set /p disableWindowsInsiderService= Désactiver le service Windows Insider (y/n)
 if /i "%disableWindowsInsiderService%"=="y" (
-    PowerShell -Command Set-Service wisvc -StartupType Disabled
-    echo disabled Windows Insider Service.
+    PowerShell -Command Set-Service wisvc -StartupType Désactivation
+    echo Désactivation Windows Insider Service.
 ) else if /i "%disableWindowsInsiderService%"=="n" (
     echo Echec de la procédure "Désactiver le service Windows Insider"
 ) else (
@@ -273,11 +273,11 @@ if /i "%disableWindowsInsiderService%"=="y" (
 )
 
 :DiagnosticServiceHost
-set /p disableDiagnosticServiceHost= Désactiver l'hôte du service de diagnostic (y/n)
-if /i "%disableDiagnosticServiceHost%"=="y" (
+set /p DésactivationiagnosticServiceHost= Désactiver l'hôte du service de diagnostic (y/n)
+if /i "%DésactivationiagnosticServiceHost%"=="y" (
     PowerShell -Command "net stop DPS"
     echo Echec de la procédure "Désactiver l'hôte du service de diagnostic"
-) else if /i "%disableDiagnosticServiceHost%"=="n" (
+) else if /i "%DésactivationiagnosticServiceHost%"=="n" (
     echo Echec de la procédure"Désactiver l'hôte du service de diagnostic".
 ) else (
     echo Entrée invalide. Entrez s'il vous plait y ou n.
@@ -285,15 +285,15 @@ if /i "%disableDiagnosticServiceHost%"=="y" (
 )
 
 :BITS
-set /p disableBITS= Désactiver les BITS (y/n)
+set /p disableBITS= Désactiver BITS ()Background Intelligent Transfer Service)(y/n)
 if /i "%disableBITS%"=="y" (
     net stop wuauserv
     net stop cryptSvc
     net stop bits
     net stop msiserver
-    echo disabled BITS.
+    echo Désactivation BITS.
 ) else if /i "%disableBITS%"=="n" (
-    echo Echec de la procédure "Désactiver les BITS".
+    echo Echec de la procédure "Désactiver BITS".
 ) else (
     echo Entrée invalide. Entrez s'il vous plait y ou n.
     goto BITS

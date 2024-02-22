@@ -65,8 +65,8 @@ Pour cela, il faut demander à arrêter Windows Insider afin de le désactiver e
     - Le service de transfert intelligent en arrière-plan (BITS, Background Intelligent Transfer Service) est utilisé par les programmeurs et les administrateurs système pour télécharger ou charger des fichiers depuis ou vers des serveurs web HTTP et des partages de fichiers SMB.
     - BITS prend en considération le coût du transfert, ainsi que l’utilisation du réseau afin que le travail de premier plan de l’utilisateur ait le moins d’impact possible. BITS gère également les intersuptions réseau, la mise en pause et la reprise automatique des transferts, même après un redémarrage.
     - BITS inclut des applets de commande PowerShell pour la création et la gestion des transferts, ainsi que l’utilitaire de ligne de commande BitsAdmin.
-
-
+   
+      
 ### Notes Importantes
 
 - Ce script doit être exécuté avec des privilèges administratifs.

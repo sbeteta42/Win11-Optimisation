@@ -39,24 +39,24 @@ Ce dépôt propose une série de **scripts Windows 11** pour optimiser ton syst�
 
 ##  Installation & usage
 
-```powershell
 # 1. Clone le dépôt
+```powershell
 git clone https://github.com/sbeteta42/Win11-Optimisation.git
 cd Win11-Optimisation
-
+```
 # 2. Exécution (PowerShell)
+```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\optimize-win11.ps1 -Mode All
+```
+- Ce script est prévu pour tourner en tant qu'administrateur.
+- Tu peux personnaliser les options si besoin.
 
-Ce script est prévu pour tourner en tant qu'administrateur.
-Tu peux personnaliser les options si besoin.
-
-Sécurité & précautions
+# 3. Sécurité & précautions
 Crée un point de restauration avant toute modification majeure.
 
-Revue préalable : relis le script avant de l’exécuter.
-
-Sauvegarde recommandée (fichiers système, registre...).
+- Revue préalable : relis le script avant de l’exécuter.
+- Sauvegarde recommandée (fichiers système, registre...).
 
 DOMAINE PROFESSIONNEL ? Teste d’abord en environnement isolé.
 
